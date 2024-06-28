@@ -55,7 +55,7 @@ class SchemaValidation(beam.DoFn):
         def validate_data(self, data, schema):
 
             for row in data:
-                print("length of row and schema",len(row),len(schema))
+                #print("length of row and schema",len(row),len(schema))
                 if len(row) != len(schema):
                     raise SchemaValidationException("Row length does not match schema length.")
                 
@@ -163,5 +163,5 @@ if __name__ == '__main__':
     logging.getLogger().setLevel(logging.INFO)
     table = ['dataflow-d.dif_sink.diftest1','dataflow-d.dif_sink.diftest2','dataflow-d.dif_sink.test_partition']
     run_pipeline(table[2])
-    # for i in range(1):
+    # for i in range(len(table)):
     #     run_pipeline(table[i])
